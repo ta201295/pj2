@@ -22,7 +22,11 @@ class PagesController extends Controller
         return view('pages.course');
     }
 
-    public function getTeachers() {
-        return view('pages.teachers');
+    public function getTeacher() {
+        return view('pages.teacher');
+    }
+
+    public function getSearch() {
+        return view('pages.search');
     }
 }

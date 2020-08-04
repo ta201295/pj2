@@ -19,8 +19,9 @@ class CreateStudentsTable extends Migration
             $table->date('dob');
             $table->string('address');
             $table->string('phone');
-            $table->integer('class_id');
+            $table->integer('classrooms_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

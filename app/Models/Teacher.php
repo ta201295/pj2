@@ -4,17 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Teacher extends Model
 {
     use SoftDeletes;
-    protected $table = 'subjects';
+    protected $table = 'teachers';
     protected $fillable = [
         'name',
+        'phone',
+        'subject_id',
         'image',
     ];
-
-    public function classroooms()
-    {
-        return $this->hasMany(Classroom::class);
-    }
 }
