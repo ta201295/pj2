@@ -16,12 +16,11 @@ class CreateTestScoresTable extends Migration
         Schema::create('test_scores', function (Blueprint $table) {
             $table->id();
             $table->integer('student_id');
-            $table->integer('classrooms_id');
             $table->tinyInteger('point_1');
             $table->tinyInteger('point_2');
             $table->tinyInteger('point_3');
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->nullable();
         });
     }
 

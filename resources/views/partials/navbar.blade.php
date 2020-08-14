@@ -24,7 +24,14 @@
                     </li>
                     <li class="{{ Request::is('teachers') ? "nav-item active" : "nav-item" }}"><a class="nav-link" href="{{route('teacher')}}">Teachers</a></li>
                     <li class="{{ Request::is('contact') ? "nav-item active" : "nav-item" }}"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
-                    <li class="{{ Request::is('search') ? "nav-item active" : "nav-item" }}"><a class="nav-link" href="{{route('search')}}">Search</a></li>
+                    <form method="GET" action="{{route('search')}}">
+                        <div class="col-md-6">
+                            <input type="text" name="search" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info">Search</button>
+                        </div>
+                    </form>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a></li>

@@ -20,7 +20,7 @@ class CreateTeachersTable extends Migration
             $table->integer('subject_id');
             $table->string('image');
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->nullable();
         });
     }
 

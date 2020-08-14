@@ -8,7 +8,6 @@
 
 		@include('partials.modal')
 	
-		@include('partials.loader')
 		
 		@include('partials.navbar')
 	
@@ -20,6 +19,5 @@
 
 		@include('partials.javascript')
 	
-		@yield('scripts')
 	</body>
 </html>

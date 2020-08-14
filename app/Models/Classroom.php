@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Classroom extends Model
+class Classroom extends Model implements Searchable
 {
     use SoftDeletes;
     protected $table = 'classrooms';
@@ -26,9 +29,15 @@ class Classroom extends Model
         return $this->hasMany(Student::class);
     }
 
-    public function testScores()
+    public function getSearchResult(): SearchResult
     {
-        return $this->hasMany(TestScore::class);
+        $url = route('classrooms.show', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
     }
 }
 

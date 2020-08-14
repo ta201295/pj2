@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TestScore extends Model
 {
@@ -10,7 +11,6 @@ class TestScore extends Model
     protected $table = 'test_scores';
     protected $fillable = [
         'student_id',
-        'classrooms_id',
         'point_1',
         'point_2',
         'point_3',
@@ -21,8 +21,4 @@ class TestScore extends Model
         return $this->belongsToMany(Student::class);
     }
     
-    public function classes()
-    {
-        return $this->belongsToMany(Classroom::class);
-    }
 }

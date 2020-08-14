@@ -26,7 +26,4 @@ class PagesController extends Controller
         return view('pages.teacher');
     }
 
-    public function getSearch() {
-        return view('pages.search');
-    }
 }

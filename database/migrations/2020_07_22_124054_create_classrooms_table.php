@@ -21,7 +21,7 @@ class CreateClassroomsTable extends Migration
             $table->string('end_day');
             $table->string('day_per_week');
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->nullable();
         });
     }
 

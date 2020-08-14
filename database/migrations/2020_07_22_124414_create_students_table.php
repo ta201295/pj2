@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('phone');
             $table->integer('classrooms_id');
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->nullable();
         });
     }
 
