@@ -1,4 +1,4 @@
-@extends('main')
+@extends('user.main')
 
 @section('title', 'Contact')
 
@@ -20,13 +20,19 @@
                 <div class="row">   
                         <div class="contact_form">
                             <div id="message"></div>
-                            <form id="contactform" class="" action="contact.php" name="contactform" method="post">
+                            <form id="contactform" class="" action="{{route('contact')}}" name="contactform" method="post">
+                            @csrf
+                                @if(Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                </div>
+                                @endif
                                 <div class="row row-fluid">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                                        <input type="text" name="name" id="first_name" class="form-control" placeholder="Full Name">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+                                        <input type="text" name="title" id="last_name" class="form-control" placeholder="Title">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
@@ -35,7 +41,7 @@
                                         <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Give us more details.."></textarea>
+                                        <textarea class="form-control" name="content" id="comments" rows="6" placeholder="Give us more details.."></textarea>
                                     </div>
                                     <div class="text-center pd">
                                         <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Get a Quote</button>

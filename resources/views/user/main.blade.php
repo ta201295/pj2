@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		@include('partials.head')
+		@include('user.partials.head')
 	</head>
 
 	<body class="host_version">
 
-		@include('partials.modal')
+		@include('user.partials.modal')
 	
-		
-		@include('partials.navbar')
+		@include('user.partials.loader')
+
+		@include('user.partials.navbar')
 	
 		@yield('content')
 		
-		@include('partials.footer')
+		@include('user.partials.footer')
 
 		<a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-		@include('partials.javascript')
+		@include('user.partials.javascript')
 	
 	</body>
 </html>

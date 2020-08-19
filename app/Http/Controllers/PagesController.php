@@ -3,27 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class PagesController extends Controller
 {
     public function getIndex() {
-        return view('pages.index');
+        return view('user.pages.index');
     }
   
     public function getAbout() {
-        return view('pages.about');
+        return view('user.pages.about');
     }
 
     public function getContact() {
-        return view('pages.contact');
+        return view('user.pages.contact');
+    }
+
+    public function contactSend(Request $request)
+    {
+        $data = $request->all();
+        Contact::create($data); 
+
+        return back()->with('success', 'Thanks for contacting us!');
     }
 
     public function getCourse() {
-        return view('pages.course');
+        return view('user.pages.course');
     }
 
     public function getTeacher() {
-        return view('pages.teacher');
+        return view('user.pages.teacher');
     }
 
 }

@@ -20,7 +20,7 @@ class Student extends Model
         'classrooms_id',
     ];
 
-    
+
     public function class()
     {
         return $this->belongsTo(Classroom::class);
@@ -34,7 +34,7 @@ class Student extends Model
     public function toSearchableArray()
     {
         $array = $this->only('name');
-        
+
         return $array;
     }
 }

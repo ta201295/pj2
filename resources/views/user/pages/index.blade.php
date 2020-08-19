@@ -1,4 +1,4 @@
-@extends('main')
+@extends('user.main')
 
 @section('title', 'Homepage')
 

@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
-class Classroom extends Model implements Searchable
+class Classroom extends Model
 {
     use SoftDeletes;
+    use Searchable;
+    
     protected $table = 'classrooms';
     protected $fillable = [
         'name',
@@ -29,15 +30,11 @@ class Classroom extends Model implements Searchable
         return $this->hasMany(Student::class);
     }
 
-    public function getSearchResult(): SearchResult
+    public function toSearchableArray()
     {
-        $url = route('classrooms.show', $this->id);
-
-        return new SearchResult(
-            $this,
-            $this->name,
-            $url
-        );
+        $array = $this->only('name');
+        
+        return $array;
     }
 }
 
